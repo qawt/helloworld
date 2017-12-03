@@ -3,9 +3,19 @@ Simple in memory database
 Obviously no SQL support :)
 """
 
+class ThingToBook:
+    def __init__(self, id):
+        self.id = id
+
+    def __str__(self):
+        return "ID is " + str(self.id)
+
 class SimpleDb:
     def __init__(self):
         self.data = []
+
+    @property
+
 
     def createTable(self, tableName, colDef):
         pass
