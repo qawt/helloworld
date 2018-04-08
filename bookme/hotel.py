@@ -1,4 +1,4 @@
-from simpledb import *
+from simpledb import ThingToBook
 
 class Hotel:
     def __init__(self, name, floorCount, roomsPerFloor):
