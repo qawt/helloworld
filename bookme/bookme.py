@@ -3,9 +3,9 @@ from hotel import Hotel
 def main():
     print("Time to book")
 
-    a = Hotel("California", 5, 10)
+    hotel = Hotel("California", 5, 10)
 
-    print(a)
+    print(hotel)
 
 if __name__ == '__main__':
     main()

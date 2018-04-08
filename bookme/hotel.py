@@ -1,19 +1,19 @@
 from simpledb import ThingToBook
 
 class Hotel:
-    def __init__(self, name, floorCount, roomsPerFloor):
-        self.name = name
-        self.floorCount = floorCount
-        self.roomsPerFloor = roomsPerFloor
-        self.rooms = []
-        self.floors = []
+    def __init__(self, name, floor_count, rooms_per_floor):
+        self._name = name
+        self._floor_count = floor_count
+        self._rooms_per_floor = rooms_per_floor
+        self._rooms = []
+        self._floors = []
 
-        for f in range(floorCount):
-            floorRooms = []
-            self.floors.append(floorRooms)
-            for r in range(roomsPerFloor):
+        for f in range(floor_count):
+            floor_rooms = []
+            self._floors.append(floor_rooms)
+            for r in range(rooms_per_floor):
                 room = Room( (f+1) * 100 + r)
-                floorRooms.append(room)
+                floor_rooms.append(room)
 
                 print("Add room number ", room)
 
@@ -22,15 +22,14 @@ class Hotel:
         print(self)
 
     def __str__(self):
-        return ("Hotel name " + self.name
+        return ("Hotel name " + self._name
             + " with total of "
-            + str(self.floorCount*self.roomsPerFloor)
+            + str(self._floor_count*self._rooms_per_floor)
             + " rooms")
-
 
 class Room(ThingToBook):
     def __init__(self, roomNumber):
         ThingToBook.__init__(self, roomNumber)
 
     def __str__(self):
-        return "I am Room number " + str(self.id)
+        return "I am Room number " + str(self._id)

@@ -5,17 +5,14 @@ Obviously no SQL support :)
 
 class ThingToBook:
     def __init__(self, id):
-        self.id = id
+        self._id = id
 
     def __str__(self):
-        return "ID is " + str(self.id)
+        return "ID is " + str(self._id)
 
 class SimpleDb:
     def __init__(self):
         self.data = []
-
-    @property
-
 
     def createTable(self, tableName, colDef):
         pass
