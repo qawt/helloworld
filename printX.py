@@ -1,24 +1,30 @@
-print("This prints out a X-pattern in n by n size,");
-print("and supports multi character patterns.")
+'''printx'''
 
-n = int(input("How big do you want this? (positive int) "))
+def do_print_x(size, character):
+    '''print c char in nxn pattern'''
+    space_size = len(character)
 
-if n < 1:
-    raise ValueError("bad n")
-
-c = input("What letters do you want to use? ")
-
-spaceSize = len(c)
-
-def printX(n, c):
-    for i in range(0, n):
-        for j in range(0, n):
-            if i == j or i == (n-1)-j:
-                print(c, end='')
+    for i in range(0, size):
+        for j in range(0, size):
+            if i == j or i == (size-1)-j:
+                print(character, end='')
             else:
-                print(' '*spaceSize, end='')
+                print(' '*space_size, end='')
         print('')
 
-printX(n, c)
+def main():
+    '''Main execution program'''
+    print("This prints out a X-pattern in n by n size,")
+    print("and supports multi character patterns.")
+    n_input = int(input("How big do you want this? (positive int) "))
+    c_input = input("What letters do you want to use? ")
 
-print('\nwhat do you think? :)')
+    if n_input < 1:
+        raise ValueError("bad n")
+
+    do_print_x(n_input, c_input)
+
+    print('\nwhat do you think? :)')
+
+if __name__ == "__main__":
+    main()
