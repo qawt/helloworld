@@ -3,20 +3,19 @@ from simpledb import ThingToBook
 class Hotel:
     def __init__(self, name, floor_count, rooms_per_floor):
         self._name = name
-        self._floor_count = floor_count
-        self._rooms_per_floor = rooms_per_floor
-        self._rooms = []
+        self._residences = []
         self._floors = []
 
         for f in range(floor_count):
             floor_rooms = []
-            self._floors.append(floor_rooms)
             for r in range(rooms_per_floor):
-                room = Room( (f+1) * 100 + r)
-                floor_rooms.append(room)
+                residence_number = (f+1) * 100 + r
+                residence = Residence( residence_number )
+                floor_rooms.append(residence)
+                self._residences[residence_number] = residence
+                print("Add room number ", residence)
 
-                print("Add room number ", room)
-
+            self._floors.append(floor_rooms)
             print("Done with Floor", f)
 
         print(self)
@@ -24,12 +23,30 @@ class Hotel:
     def __str__(self):
         return ("Hotel name " + self._name
             + " with total of "
-            + str(self._floor_count*self._rooms_per_floor)
+            + len(self._residences)
             + " rooms")
 
-class Room(ThingToBook):
-    def __init__(self, roomNumber):
-        ThingToBook.__init__(self, roomNumber)
+class Residence(ThingToBook):
+    def __init__(self, room_number):
+        ThingToBook.__init__(self, room_number)
+
+        self._bedrooms = []
+        self._bathrooms = []
+        self._half_bathrooms = []
+        self._kitchens = []
+        self._other_rooms = []
+        self._living_area = []
+        self._outdoor_space = []
+        self._parking = []
+
 
     def __str__(self):
         return "I am Room number " + str(self._id)
+
+class Room:
+    def __init__(self, name, sqft):
+        self.sqft = sqft
+        self.name = name
+
+class Bedroom(Room):
+    def __init__(self, )
